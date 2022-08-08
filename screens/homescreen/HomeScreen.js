@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     aspectRatio: 1,
     marginLeft: "32.5%",
     marginTop: "40%",
-    backgroundColor: "#0f0",
+    backgroundColor: "#a80cb2",
   },
   setsButton: {
     position: "absolute",
