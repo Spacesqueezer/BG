@@ -20,13 +20,14 @@ const HomeScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  wrapper: { width: "100%", height: "100%", backgroundColor: "#d4d4d4" },
+  wrapper: { width: "100%", height: "100%", backgroundColor: "#fff" },
   screenButton: {
     width: "35%",
     aspectRatio: 1,
     marginLeft: "32.5%",
     marginTop: "40%",
-    backgroundColor: "#a80cb2",
+    backgroundColor: "#5cc41a",
+    borderRadius: 20,
   },
   setsButton: {
     position: "absolute",
@@ -35,6 +36,14 @@ const styles = StyleSheet.create({
     width: "10%",
     aspectRatio: 1,
     backgroundColor: "#f00",
+  },
+  shadow: {
+    width: "100%",
+    height: "100%",
+    backgroundColor: "#00f",
+    left: -5,
+    top: -5,
+    elevation: 2,
   },
 });
 
