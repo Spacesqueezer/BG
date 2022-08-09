@@ -1,15 +1,10 @@
-import {
-  TouchableOpacity,
-  View,
-  StyleSheet,
-  Image,
-  TouchableWithoutFeedback,
-  TouchableWithoutFeedbackComponent
-} from "react-native";
+import React from "react";
+import { TouchableOpacity, View, StyleSheet, Image } from "react-native";
 import { Shadow } from "react-native-shadow-2";
 import barcode from "../../images/barcode-product.png";
 import recipe from "../../images/recipe-book.png";
 import cog from "../../images/cog-wheel.png";
+import PropTypes from "prop-types";
 
 /**
  * The HomeScreen function renders the HomeScreen component.
@@ -19,8 +14,9 @@ import cog from "../../images/cog-wheel.png";
  *
  * @return The following:
  *
- * @docauthor Trelent
+ * @doc-author Trelent
  */
+
 const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.wrapper}>
@@ -84,6 +80,12 @@ const HomeScreen = ({ navigation }) => {
       </TouchableOpacity>
     </View>
   );
+};
+
+HomeScreen.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 const styles = StyleSheet.create({

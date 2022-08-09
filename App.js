@@ -1,14 +1,22 @@
-import { StyleSheet, Text, View } from "react-native";
+import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "./screens/homescreen/HomeScreen";
-import Inventory from './screens/inventory/Inventory'
+import Inventory from "./screens/inventory/Inventory";
 import Recipes from "./screens/recipes/Recipes";
 import Sets from "./screens/settings/Sets";
+import { Button } from "react-native";
+import PropTypes from "prop-types";
+import { registerRootComponent } from "expo";
 
 const Stack = createNativeStackNavigator();
 
-export default function App() {
+/**
+ * Main file, stack of screens
+ * @return {JSX.Element}
+ * @constructor
+ */
+function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
@@ -17,19 +25,25 @@ export default function App() {
           component={HomeScreen}
           options={{ headerShown: false }}
         />
-        <Stack.Screen name={'inventory'} component={Inventory}/>
-        <Stack.Screen name={'recipes'} component={Recipes}/>
-        <Stack.Screen name={'sets'} component={Sets}/>
+        <Stack.Screen
+          name={"inventory"}
+          component={Inventory}
+          options={{
+            title: "Инвентаризация",
+            headerRight: () => <Button title={"Новая"} />,
+          }}
+        />
+        <Stack.Screen name={"recipes"} component={Recipes} />
+        <Stack.Screen name={"sets"} component={Sets} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#cb0909",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+App.propTypes = {
+  title: PropTypes.string,
+  headerRight: PropTypes.func,
+  headerShown: PropTypes.bool,
+};
+
+registerRootComponent(App);
