@@ -37,7 +37,7 @@ const HomeScreen = ({ navigation }) => {
               onPress={() => navigation.navigate("inventory")}
             >
               <Image
-                source={recipe}
+                source={barcode}
                 resizeMode={"contain"}
                 style={styles.buttonPicture}
               />
@@ -60,7 +60,7 @@ const HomeScreen = ({ navigation }) => {
               onPress={() => navigation.navigate("recipes")}
             >
               <Image
-                source={barcode}
+                source={recipe}
                 resizeMode={"contain"}
                 style={styles.buttonPicture}
               />

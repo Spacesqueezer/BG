@@ -1,8 +1,13 @@
-import React from 'react';
-import {View} from "react-native";
+import React, { useState } from "react";
+import { SectionList, View } from "react-native";
 
 const Inventory = () => {
-  return(<View></View>)
-}
+  const [DATA, setDATA] = useState();
+  return (
+    <View>
+      <SectionList sections={DATA} />
+    </View>
+  );
+};
 
-export default Inventory
+export default Inventory;
