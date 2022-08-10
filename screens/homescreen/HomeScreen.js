@@ -34,7 +34,10 @@ const HomeScreen = ({ navigation }) => {
           >
             <TouchableOpacity
               style={styles.screenButton}
-              onPress={() => navigation.navigate("inventory")}
+              onPress={() =>
+                navigation.navigate("inventory", {title: "Инвентаризация",
+                })
+              }
             >
               <Image
                 source={barcode}
