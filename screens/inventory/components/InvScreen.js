@@ -1,5 +1,6 @@
 import React from "react";
 import { SectionList, Text, View, StyleSheet } from "react-native";
+import ProductItem from "./ProductItem";
 
 const InvScreen = (props) => {
   return (
@@ -7,7 +8,7 @@ const InvScreen = (props) => {
       <SectionList
         style={styles.sectList}
         sections={props.data}
-        renderItem={({ item }) => <Text>{item}</Text>}
+        renderItem={({ item }) => <ProductItem item={item} />}
         renderSectionHeader={({ section: { title } }) => (
           <Text style={styles.sectionHeader}>{title}</Text>
         )}
@@ -20,7 +21,7 @@ const InvScreen = (props) => {
 };
 
 const styles = StyleSheet.create({
-  wrapper: { width: "100%", height: "100%", backgroundColor: "#e1e1e1" },
+  wrapper: { width: "100%", height: "100%",},
   sectList: { width: "100%", height: "100%" },
   sectionHeader: {
     borderWidth: 3,
@@ -29,7 +30,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: "center",
     textAlignVertical: "center",
-    backgroundColor: "#e1e1e1",
+    backgroundColor: "#cccccc",
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
   },
@@ -37,7 +38,7 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     width: "100%",
     aspectRatio: 15,
-    backgroundColor: "#e1e1e1",
+    backgroundColor: "#cccccc",
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
   },

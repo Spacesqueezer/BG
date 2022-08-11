@@ -27,6 +27,12 @@ const Inventory = ({ navigation }) => {
     });
   });
 
+  const addProduct = (product) => {
+    let prodCopy = [...DATA]
+    prodCopy[0].data.push(product);
+    setDATA(prodCopy);
+  }
+
   useEffect(() => {
     // get saved data or set blank
     getData("current_inventory").then((loadedData) => {
@@ -41,7 +47,7 @@ const Inventory = ({ navigation }) => {
     });
   }, []);
 
-  return !isEditing ? <InvScreen data={DATA} /> : <Editor data={DATA} />;
+  return !isEditing ? <InvScreen data={DATA} /> : <Editor data={DATA} addProduct={addProduct} />;
 };
 
 export default Inventory;
