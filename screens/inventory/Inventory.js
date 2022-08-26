@@ -16,6 +16,10 @@ const Inventory = ({ navigation }) => {
   const [DATA, setDATA] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
 
+  /**
+   * Adds button, that switches visible screen between Inventory and
+   * editing
+   */
   useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => (
@@ -28,10 +32,10 @@ const Inventory = ({ navigation }) => {
   });
 
   const addProduct = (product) => {
-    let prodCopy = [...DATA]
+    let prodCopy = [...DATA];
     prodCopy[0].data.push(product);
     setDATA(prodCopy);
-  }
+  };
 
   useEffect(() => {
     // get saved data or set blank
@@ -47,7 +51,15 @@ const Inventory = ({ navigation }) => {
     });
   }, []);
 
-  return !isEditing ? <InvScreen data={DATA} /> : <Editor data={DATA} addProduct={addProduct} />;
+  useEffect(() => {
+    storeData("current_inventory", DATA);
+  }, [DATA]);
+
+  return !isEditing ? (
+    <InvScreen data={DATA} />
+  ) : (
+    <Editor data={DATA} addProduct={addProduct} />
+  );
 };
 
 export default Inventory;

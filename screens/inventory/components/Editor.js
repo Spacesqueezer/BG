@@ -11,8 +11,7 @@ import AddProdModal from "./AddNewProductModal";
 
 const Editor = (props) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-
-  let list = [];
+  const [list, setList] = useState([]);
 
   const addProduct = (product) => {
     list.push(product);
@@ -20,20 +19,20 @@ const Editor = (props) => {
   };
 
   useEffect(() => {
-    list = props.data.forEach((item) => {
+    let product_list = [];
+    props.data.forEach((item) => {
       item.data.forEach((product) => {
-        list.push(product);
+        product_list.push(product);
       });
     });
+    setList(product_list);
   }, []);
 
   return (
     <View style={styles.wrapper}>
       <FlatList
         data={list}
-        renderItem={({ item }) => {
-          <Text>{item}</Text>;
-        }}
+        renderItem={({ item }) => <Text style={styles.text}>{item.name}</Text>}
       />
       <TouchableOpacity
         style={styles.addButton}
@@ -75,6 +74,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     color: "#fff",
   },
+  text: {},
 });
 
 export default Editor;

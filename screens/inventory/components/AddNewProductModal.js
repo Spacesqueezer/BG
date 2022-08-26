@@ -10,7 +10,7 @@ const AddProdModal = (props) => {
       let newProduct = new Product(prodName, "box");
       props.addProduct(newProduct);
     }
-    props.closeModal()
+    props.closeModal();
   };
 
   return (
@@ -22,7 +22,7 @@ const AddProdModal = (props) => {
         <Text style={styles.label}>Название продукта</Text>
         <TextInput
           style={styles.nameInput}
-          onChangeText={text => setProdName(text)}
+          onChangeText={(text) => setProdName(text)}
         />
         <Button title={"Add"} onPress={onAddProduct} />
         <Button title={"Cancel"} />
@@ -53,6 +53,7 @@ const styles = StyleSheet.create({
     height: "85%",
     width: "95%",
     left: "2.5%",
+    borderWidth: 1,
     backgroundColor: "#dedede",
     elevation: 10,
   },
