@@ -11,6 +11,7 @@ import {
 import { storeData, emptyData, getData } from "../dataFunctions";
 import InvScreen from "./components/InvScreen";
 import Editor from "./components/Editor";
+import position from "react-native-web/dist/exports/Touchable/Position";
 
 const Inventory = ({ navigation }) => {
   const [DATA, setDATA] = useState([]);
@@ -28,6 +29,10 @@ const Inventory = ({ navigation }) => {
           onPress={() => setIsEditing(!isEditing)}
         />
       ),
+      headerBackVisible: !isEditing,
+      headerStyle: {
+
+      },
     });
   });
 

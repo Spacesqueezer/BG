@@ -8,7 +8,7 @@ const InvScreen = (props) => {
       <SectionList
         style={styles.sectList}
         sections={props.data}
-        renderItem={({ item }) => <ProductItem item={item} />}
+        renderItem={({ item, index }) => <ProductItem item={item} idx={index} />}
         renderSectionHeader={({ section: { title } }) => (
           <Text style={styles.sectionHeader}>{title}</Text>
         )}

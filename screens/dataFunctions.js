@@ -18,6 +18,14 @@ const getData = async (key) => {
   }
 };
 
+const clearData = async () => {
+  try {
+    await AsyncStorage.clear();
+  } catch (e) {
+    // clear error
+  }
+};
+
 const emptyData = [
   {
     title: "Необходимо проверить",
@@ -51,4 +59,4 @@ function Product(name, unit) {
   this.unit = unit;
 }
 
-export { storeData, getData, emptyData, Product };
+export { storeData, getData, clearData, emptyData, Product };

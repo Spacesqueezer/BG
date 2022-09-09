@@ -1,10 +1,17 @@
 import React from "react";
-import { TouchableOpacity, View, StyleSheet, Image } from "react-native";
+import {
+  TouchableOpacity,
+  View,
+  StyleSheet,
+  Image,
+  Button,
+} from "react-native";
 import { Shadow } from "react-native-shadow-2";
 import barcode from "../../images/barcode-product.png";
 import recipe from "../../images/recipe-book.png";
 import cog from "../../images/cog-wheel.png";
 import PropTypes from "prop-types";
+import { clearData } from "../dataFunctions";
 
 /**
  * The HomeScreen function renders the HomeScreen component.
@@ -35,8 +42,7 @@ const HomeScreen = ({ navigation }) => {
             <TouchableOpacity
               style={styles.screenButton}
               onPress={() =>
-                navigation.navigate("inventory", {title: "Инвентаризация",
-                })
+                navigation.navigate("inventory", { title: "Инвентаризация" })
               }
             >
               <Image
@@ -81,6 +87,7 @@ const HomeScreen = ({ navigation }) => {
           style={styles.buttonPicture}
         />
       </TouchableOpacity>
+      <Button title={"clear data"} onPress={() => clearData()} />
     </View>
   );
 };
