@@ -1,16 +1,19 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { View, StyleSheet, Text, TextInput, Button } from "react-native";
 import { Product } from "../../dataFunctions";
 
 const AddProdModal = (props) => {
   const [prodName, setProdName] = useState("");
+  const prodNameInputRef = useRef();
 
   const onAddProduct = () => {
     if (prodName !== "") {
       let newProduct = new Product(prodName, "box");
       props.addProduct(newProduct);
+      props.closeModal();
+    } else {
+      prodNameInputRef.current.focus();
     }
-    props.closeModal();
   };
 
   return (
@@ -23,9 +26,10 @@ const AddProdModal = (props) => {
         <TextInput
           style={styles.nameInput}
           onChangeText={(text) => setProdName(text)}
+          ref={prodNameInputRef}
         />
         <Button title={"Add"} onPress={onAddProduct} />
-        <Button title={"Cancel"} />
+        <Button title={"Cancel"} onPress={props.closeModal} />
       </View>
       <View style={styles.footer}></View>
     </View>
